@@ -3,9 +3,14 @@ import React from 'react'
 const Messages = ({ messages, currentUser }) => {
 
     let renderMessage = (message) => {
-        const { sender, content, color } = message;
-        const messageFromMe = currentUser.username === message.sender;
-        const className = messageFromMe ? "Messages-message currentUser" : "Messages-message";
+        let { sender, content, color } = message;
+        //console.log('---> message: ' + JSON.stringify(message));
+        if (message.sender === 'system')
+            var className = 'Messages-message currentUser sysMessage';
+        else {
+            const messageFromMe = currentUser.username === message.sender;
+            var className = messageFromMe ? "Messages-message currentUser" : "Messages-message";
+        }
         return (
             <li className={className}>
                 <span

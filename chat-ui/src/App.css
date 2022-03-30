@@ -73,6 +73,10 @@
   background-color: rgb(143, 255, 152);
 }
 
+.sysMessage>.Message-content .text {
+  background-color: rgb(253, 118, 118);
+}
+
 .message-input {
   display: flex;
   width: 100%;

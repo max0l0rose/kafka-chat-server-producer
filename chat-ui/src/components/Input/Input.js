@@ -10,6 +10,7 @@ const Input = ({ onSendMessage }) => {
     }
 
     let onSubmit = () => {
+
         setText("")
         onSendMessage(text);
     }

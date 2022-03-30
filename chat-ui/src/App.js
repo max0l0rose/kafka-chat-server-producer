@@ -24,11 +24,20 @@ const App = () => {
   }
 
   let onSendMessage = (msgText) => {
-    chatAPI.sendMessage(user.username, msgText).then(res => {
-      console.log('Sent', res);
-    }).catch(err => {
-      console.log('Error Occured while sending message to api');
-    })
+    // const msg = new Object();
+    // msg.content = 'Forddddd';
+    chatAPI.sendMessage(user.username, msgText)
+        .then(res => {
+            console.log('Sent', res);
+        })
+        .catch(err => {
+          const msg = {
+            content: 'Error Occured while sending message to api',
+            sender: 'system'
+          };
+          onMessageReceived(msg);
+          console.log(msg.content);
+        })
   }
 
   let handleLoginSubmit = (username) => {

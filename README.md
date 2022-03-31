@@ -1,6 +1,3 @@
-# Chat Application
-A Realtime Chat Application built using React and Kafka as MessageBroker
-
 
 
 
@@ -18,18 +15,10 @@ kafka-server-start .\config\server.properties
 
 *Create a Topic*
 ```
-kafka-topics --create --topic kafka-chat --zookeeper localhost:2181 --replication-factor 1 --partitions 1
+kafka-topics --create --topic kafka-chat-2 --zookeeper localhost:2181 --replication-factor 1 --partitions 1
 ```
 
-*Start Backend*
+*Consume the topic (to test)*
+```shell script
+kafka-console-consumer --bootstrap-server localhost:9092 --topic kafka-chat-2
 ```
-mvn spring-boot:run
-```
-
-*Start Frontend*
-```
-npm start
-```
-
-
-
